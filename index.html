@@ -117,7 +117,7 @@
     const JUMP = -9.5;
     const MOVE = 4;
     const WORLD_W = 20;
-    const WORLD_H = 15;
+    const WORLD_H = 28;
 
     const BLOCKS = {
       air:         { id: 0, name: 'air',         solid: false },
@@ -156,6 +156,8 @@
     let blockCount = 0;
     let fluidTick = 0;
     let animFrame = 0;
+
+    const camera = { x: 0, y: 0 };
 
     const player = {
       x: 9 * TILE,
@@ -598,7 +600,7 @@
 
       if (inLava && fluidTick % 20 === 0) {
         SFX.hurt();
-        player.x = 9 * TILE;
+        player.x = Math.floor(WORLD_W / 2) * TILE - player.w / 2;
         player.y = 4 * TILE;
         player.vy = 0;
       }
@@ -629,16 +631,27 @@
 
       if (player.y > WORLD_H * TILE + 100) {
         SFX.hurt();
-        player.x = 9 * TILE;
+        player.x = Math.floor(WORLD_W / 2) * TILE - player.w / 2;
         player.y = 4 * TILE;
         player.vy = 0;
       }
     }
 
+    function updateCamera() {
+      const targetX = player.x + player.w / 2 - canvas.width / 2;
+      const targetY = player.y + player.h / 2 - canvas.height / 2;
+      const maxX = Math.max(0, WORLD_W * TILE - canvas.width);
+      const maxY = Math.max(0, WORLD_H * TILE - canvas.height);
+      const cx = Math.max(0, Math.min(targetX, maxX));
+      const cy = Math.max(0, Math.min(targetY, maxY));
+      camera.x += (cx - camera.x) * 0.12;
+      camera.y += (cy - camera.y) * 0.12;
+    }
+
     function screenToTile(sx, sy) {
-      const tx = Math.floor(sx / TILE);
-      const ty = Math.floor(sy / TILE);
-      return { tx, ty };
+      const wx = sx + camera.x;
+      const wy = sy + camera.y;
+      return { tx: Math.floor(wx / TILE), ty: Math.floor(wy / TILE) };
     }
 
     function playerNear(tx, ty) {
@@ -1170,11 +1183,15 @@
       tickFluids();
       tickMining();
       movePlayer();
+      updateCamera();
       drawSky();
+      ctx.save();
+      ctx.translate(-Math.round(camera.x), -Math.round(camera.y));
       drawWorld();
       drawPlayer();
       drawMiningCracks();
       drawHighlight();
+      ctx.restore();
       updateHUD();
       requestAnimationFrame(loop);
     }
