@@ -1,83 +1,408 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="We make games that don't exist. If people want them, we make them real. Mobile games from No Such Games.">
+  <meta name="theme-color" content="#0a0a0f">
   <title>No Such Games</title>
+  <link rel="icon" href="assets/games/tinyblock/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --lime: #d4ff00;
+      --lime-dim: rgba(212, 255, 0, 0.12);
+      --lime-glow: rgba(212, 255, 0, 0.35);
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-2: #1a1a26;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f2f2f6;
+      --muted: rgba(242, 242, 246, 0.62);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       min-height: 100vh;
-      background: #1a1a2e;
-      color: #eee;
-      font-family: system-ui, sans-serif;
-      padding: 48px 24px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Outfit", system-ui, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
     }
-    main {
-      max-width: 720px;
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, var(--lime-dim), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 20%, rgba(84, 185, 72, 0.06), transparent 50%),
+        var(--bg);
+    }
+
+    .bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("assets/games/tinyblock/block_atlas.png");
+      background-size: 128px;
+      image-rendering: pixelated;
+    }
+
+    .wrap {
+      max-width: 1040px;
       margin: 0 auto;
+      padding: 40px 24px 72px;
     }
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .tagline {
-      opacity: 0.65;
-      margin-bottom: 40px;
-    }
-    .games {
+
+    .hero {
       display: grid;
-      gap: 16px;
+      grid-template-columns: auto 1fr;
+      gap: 24px 28px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 20px;
+      box-shadow:
+        0 0 0 2px var(--bg),
+        0 0 0 4px var(--lime),
+        0 12px 40px rgba(0, 0, 0, 0.45);
+      image-rendering: pixelated;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.85rem, 4.5vw, 2.65rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 span {
+      color: var(--lime);
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--text);
+      max-width: 36em;
+      margin-bottom: 12px;
+    }
+
+    .thesis {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 40em;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+    }
+
+    .pill--accent {
+      border-color: rgba(212, 255, 0, 0.35);
+      color: var(--lime);
+      background: var(--lime-dim);
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
       list-style: none;
     }
+
+    .step {
+      padding: 22px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--lime), transparent);
+      opacity: 0.7;
+    }
+
+    .step-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--lime);
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .step strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .callout {
+      padding: 22px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--lime);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 52em;
+    }
+
+    .games {
+      display: grid;
+      gap: 20px;
+      list-style: none;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
     .game-card {
-      display: block;
-      padding: 20px 24px;
-      background: #16162a;
-      border: 2px solid #333;
-      border-radius: 10px;
-      color: inherit;
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius);
+      overflow: hidden;
       text-decoration: none;
-      transition: border-color 0.15s, transform 0.15s;
+      color: inherit;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
+
     .game-card:hover {
-      border-color: #8bc34a;
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      border-color: rgba(212, 255, 0, 0.4);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--lime-dim);
     }
-    .game-card h2 {
-      font-size: 1.15rem;
-      margin-bottom: 6px;
+
+    .game-card__media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--surface-2);
+      overflow: hidden;
     }
-    .game-card p {
-      font-size: 0.9rem;
-      opacity: 0.75;
-      line-height: 1.5;
+
+    .game-card__media img.cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-    .badge {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #2a2a4a;
+
+    .game-card__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 15, 0.85) 100%);
+    }
+
+    .game-card__icon {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      image-rendering: pixelated;
+      z-index: 1;
+    }
+
+    .game-card__body {
+      padding: 20px 22px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .game-card__title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .game-card__title-row h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .game-card__title-row img.mode {
+      width: 28px;
+      height: 28px;
       opacity: 0.9;
+    }
+
+    .game-card__body p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-top: 14px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: var(--lime-dim);
+      color: var(--lime);
+      border: 1px solid rgba(212, 255, 0, 0.25);
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      max-width: 48em;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+      .pill-row {
+        justify-content: center;
+      }
+      .steps {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>No Such Games</h1>
-    <p class="tagline">Browser prototypes and tiny games.</p>
-    <ul class="games">
-      <li>
-        <a class="game-card" href="skyblock.html">
-          <h2>2D Skyblock</h2>
-          <p>Minecraft-style skyblock in the browser: mine blocks, craft, water and lava.</p>
-          <span class="badge">prototype</span>
-        </a>
-      </li>
-    </ul>
-  </main>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="hero">
+      <img
+        class="logo"
+        src="assets/brand/avatar-192.png"
+        width="96"
+        height="96"
+        alt=""
+      >
+      <div class="hero-text">
+        <h1>No Such <span>Games</span></h1>
+        <p class="tagline">We make games that don't exist. If people want them, we make them real.</p>
+        <p class="thesis">A video-first studio: we test a playable promise, measure whether people want to play—not just watch—then prototype only what earns it.</p>
+        <div class="pill-row">
+          <span class="pill pill--accent">Playable promise</span>
+          <span class="pill">Player intent</span>
+          <span class="pill">Honest prototypes</span>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="how-heading">
+      <p class="section-label" id="how-heading">How we work</p>
+      <ol class="steps">
+        <li class="step">
+          <p class="step-num">01</p>
+          <p>Test a <strong>playable promise</strong> before full production.</p>
+        </li>
+        <li class="step">
+          <p class="step-num">02</p>
+          <p>Measure <strong>player intent</strong>, not views alone.</p>
+        </li>
+        <li class="step">
+          <p class="step-num">03</p>
+          <p>Build the <strong>smallest playable truth</strong> when a concept earns it.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="principles-heading">
+      <p class="section-label" id="principles-heading">Principles</p>
+      <p class="callout">Concept footage is clearly labeled. We never fake store ratings, downloads, or release dates. We kill ideas quickly when they don't work—and keep the learning.</p>
+    </section>
+
+    <section aria-labelledby="games-heading">
+      <p class="section-label" id="games-heading">Games</p>
+      <ul class="games">
+        <li>
+          <a class="game-card" href="https://tinyblock.nosuchgames.com">
+            <div class="game-card__media">
+              <img class="cover" src="assets/games/tinyblock/splash-960.png" width="960" height="540" alt="">
+              <img class="game-card__icon" src="assets/games/tinyblock/icon-256.png" width="52" height="52" alt="">
+            </div>
+            <div class="game-card__body">
+              <div class="game-card__title-row">
+                <h3>Tiny Block Island</h3>
+                <img class="mode" src="assets/games/tinyblock/world_skyblock.svg" width="28" height="28" alt="">
+              </div>
+              <p>Start on a tiny floating island—mine, craft, combine blocks, and grow your world on mobile.</p>
+              <span class="badge">iOS &amp; Android</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>We label concept work honestly. Nothing here claims a store rating, download count, or release date we have not earned.</p>
+    </footer>
+  </div>
 </body>
 </html>
