@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Collaborate with No Such Games as a creator, curator, media outlet, studio, or distribution partner.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="canonical" href="https://nosuchgames.com/collaborate/">
+  <title>Collaborate with No Such Games</title>
+  <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/brand/no-such-games-avatar-v1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lime: #d4ff00;
+      --lime-dim: rgba(212, 255, 0, 0.12);
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-2: #1a1a26;
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f2f2f6;
+      --muted: rgba(242, 242, 246, 0.65);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 75% 45% at 50% -10%, rgba(212, 255, 0, 0.13), transparent 58%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Outfit", system-ui, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(1040px, calc(100% - 48px)); margin: 0 auto; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand { font-size: 1.05rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: var(--lime); }
+    .back { color: var(--muted); font-size: 0.9rem; text-decoration: none; }
+    .back:hover { color: var(--lime); }
+
+    .hero { padding: 92px 0 72px; max-width: 800px; }
+
+    .eyebrow, .section-label {
+      color: var(--lime);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.75rem, 7vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      margin: 18px 0 24px;
+    }
+
+    .lede {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.3rem);
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: transform 0.18s ease;
+    }
+
+    .btn-primary { background: var(--lime); color: #0a0a0f; border-color: var(--lime); }
+    .btn-secondary { background: var(--surface); color: var(--text); }
+    .btn:hover { transform: translateY(-2px); }
+
+    section { padding: 34px 0 64px; }
+    .section-head { margin-bottom: 24px; }
+
+    h2 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-top: 10px;
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .card {
+      padding: 26px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius);
+    }
+
+    .card-num {
+      color: var(--lime);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+    }
+
+    .card h3 { font-size: 1.16rem; margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: 0.94rem; }
+
+    .principles {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .principles ul { list-style: none; }
+    .principles li { padding: 15px 0; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .principles strong { color: var(--text); }
+
+    .opportunity {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 32px;
+      border: 1px solid rgba(212, 255, 0, 0.3);
+      background: linear-gradient(135deg, var(--lime-dim), var(--surface));
+      border-radius: var(--radius);
+    }
+
+    .opportunity p { color: var(--muted); max-width: 650px; margin-top: 9px; }
+
+    .contact {
+      margin: 20px 0 72px;
+      padding: 34px;
+      background: var(--surface-2);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .contact p { color: var(--muted); margin: 10px 0 22px; max-width: 680px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 42px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 32px, 1040px); }
+      .hero { padding: 64px 0 46px; }
+      .grid, .principles { grid-template-columns: 1fr; }
+      .opportunity { grid-template-columns: 1fr; }
+      .opportunity .btn { justify-self: start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topbar" aria-label="Primary">
+      <a class="brand" href="/">No Such <span>Games</span></a>
+      <a class="back" href="/">Games &amp; studio</a>
+    </nav>
+
+    <main>
+      <header class="hero">
+        <p class="eyebrow">Creators · Media · Studios</p>
+        <h1>Let’s make something worth discovering.</h1>
+        <p class="lede">We collaborate on honest stories, playable experiments, and partnerships that give people a real reason to care—not just another ad to scroll past.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:feedback@nosuchgames.com?subject=Collaboration%20with%20No%20Such%20Games">Start a conversation</a>
+          <a class="btn btn-secondary" href="https://tinyblock.nosuchgames.com/creators/">See the Tiny Block opportunity</a>
+        </div>
+      </header>
+
+      <section aria-labelledby="paths-title">
+        <div class="section-head">
+          <p class="section-label">Ways to work together</p>
+          <h2 id="paths-title">Different partners. One honest process.</h2>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <p class="card-num">01</p>
+            <h3>Creators &amp; streamers</h3>
+            <p>Early builds, original integrations, challenges, sponsored campaigns, and performance-based partnerships when the fit is right.</p>
+          </article>
+          <article class="card">
+            <p class="card-num">02</p>
+            <h3>Press &amp; curators</h3>
+            <p>Review access, concise press materials, developer context, and direct answers without pressure for positive coverage.</p>
+          </article>
+          <article class="card">
+            <p class="card-num">03</p>
+            <h3>Studios &amp; partners</h3>
+            <p>Creative experiments, technology, distribution, cross-promotion, and other ideas that become stronger when built together.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="principles" aria-labelledby="principles-title">
+        <div>
+          <p class="section-label">Our principles</p>
+          <h2 id="principles-title">Clear terms. Creative freedom.</h2>
+        </div>
+        <ul>
+          <li><strong>No required praise.</strong> Trying a build never creates an obligation to publish or be positive.</li>
+          <li><strong>No hidden arrangements.</strong> Paid and affiliate relationships should be disclosed clearly.</li>
+          <li><strong>No vague economics.</strong> Fees, tracking, rev share, usage rights, and timing are agreed in writing.</li>
+          <li><strong>No empty spectacle.</strong> The collaboration should give the audience something genuinely interesting.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="opportunities-title">
+        <p class="section-label">Current opportunity</p>
+        <div class="opportunity">
+          <div>
+            <h2 id="opportunities-title">Tiny Block: Founding Worldshapers</h2>
+            <p>Creators can help shape creatures, items, plants, materials, and discoveries that their audience can find inside the game.</p>
+          </div>
+          <a class="btn btn-primary" href="https://tinyblock.nosuchgames.com/creators/">Explore the program</a>
+        </div>
+      </section>
+
+      <section class="contact" aria-labelledby="contact-title">
+        <p class="section-label">Have another idea?</p>
+        <h2 id="contact-title">Tell us what you want to make.</h2>
+        <p>Include a link to your work, the kind of collaboration you have in mind, and why No Such Games feels like the right fit.</p>
+        <a class="btn btn-primary" href="mailto:feedback@nosuchgames.com?subject=Collaboration%20with%20No%20Such%20Games">feedback@nosuchgames.com</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>© No Such Games. We make games that don’t exist—until players want them.</p>
+    </footer>
+  </div>
+</body>
+</html>
