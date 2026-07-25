@@ -31,6 +31,7 @@
   <style>
     :root {
       --lime: #d4ff00;
+      --studio-name: #e5ff72;
       --lime-dim: rgba(212, 255, 0, 0.12);
       --lime-glow: rgba(212, 255, 0, 0.35);
       --bg: #0a0a0f;
@@ -110,6 +111,11 @@
 
     .hero-text h1 span {
       color: var(--lime);
+    }
+
+    .studio-name {
+      color: var(--studio-name);
+      font-weight: 700;
     }
 
     .tagline {
@@ -442,7 +448,7 @@
         alt=""
       >
       <div class="hero-text">
-        <h1>No Such <span>Games</span></h1>
+        <h1><span class="studio-name">No Such Games</span></h1>
         <p class="tagline">We make games that don't exist. If people want them, we make them real.</p>
         <p class="thesis">A video-first studio: we test a playable promise, measure whether people want to play—not just watch—then prototype only what earns it.</p>
         <div class="pill-row">
@@ -506,7 +512,7 @@
       <div class="release-lab">
         <div>
           <h2 id="release-lab-heading">Our in-house release lab</h2>
-          <p>No Such Games is where we exercise the mobile release, store, analytics, and maintenance systems behind App Release Ops on products we own.</p>
+          <p><span class="studio-name">No Such Games</span> is where we exercise the mobile release, store, analytics, and maintenance systems behind App Release Ops on products we own.</p>
         </div>
         <a href="https://appreleaseops.com/work/no-such-games/" data-analytics-event="app_release_ops_click" data-analytics-program="studio">App Release Ops <span aria-hidden="true">&nbsp;→</span></a>
       </div>

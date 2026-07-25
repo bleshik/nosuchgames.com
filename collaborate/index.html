@@ -31,6 +31,7 @@
   <style>
     :root {
       --lime: #d4ff00;
+      --studio-name: #e5ff72;
       --lime-dim: rgba(212, 255, 0, 0.12);
       --bg: #0a0a0f;
       --surface: #12121a;
@@ -66,7 +67,7 @@
     }
 
     .brand { font-size: 1.05rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: var(--lime); }
+    .studio-name { color: var(--studio-name); font-weight: 700; }
     .back { color: var(--muted); font-size: 0.9rem; text-decoration: none; }
     .back:hover { color: var(--lime); }
 
@@ -199,7 +200,7 @@
 <body>
   <div class="wrap">
     <nav class="topbar" aria-label="Primary">
-      <a class="brand" href="/">No Such <span>Games</span></a>
+      <a class="brand" href="/"><span class="studio-name">No Such Games</span></a>
       <a class="back" href="/">Games &amp; studio</a>
     </nav>
 
@@ -265,13 +266,13 @@
       <section class="contact" aria-labelledby="contact-title">
         <p class="section-label">Have another idea?</p>
         <h2 id="contact-title">Tell us what you want to make.</h2>
-        <p>Include a link to your work, the kind of collaboration you have in mind, and why No Such Games feels like the right fit.</p>
+        <p>Include a link to your work, the kind of collaboration you have in mind, and why <span class="studio-name">No Such Games</span> feels like the right fit.</p>
         <a class="btn btn-primary" href="mailto:feedback@nosuchgames.com?subject=Collaboration%20with%20No%20Such%20Games" data-analytics-event="collaboration_contact" data-analytics-program="studio">feedback@nosuchgames.com</a>
       </section>
     </main>
 
     <footer>
-      <p>© No Such Games. We make games that don’t exist—until players want them.</p>
+      <p>© <span class="studio-name">No Such Games</span>. We make games that don’t exist—until players want them.</p>
       <p><a href="https://tinyblock.nosuchgames.com/privacy/">Privacy</a></p>
     </footer>
   </div>
