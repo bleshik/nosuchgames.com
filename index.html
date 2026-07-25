@@ -22,6 +22,7 @@
   <meta name="description" content="We make games that don't exist. If people want them, we make them real. Mobile games from No Such Games.">
   <meta name="theme-color" content="#0a0a0f">
   <title>No Such Games</title>
+  <link rel="canonical" href="https://nosuchgames.com/">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/no-such-games-avatar-v1.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -344,6 +345,45 @@
       border: 1px solid rgba(212, 255, 0, 0.25);
     }
 
+    .release-lab {
+      display: grid;
+      grid-template-columns: 1.25fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 26px;
+      background: linear-gradient(135deg, var(--surface), rgba(212, 255, 0, 0.055));
+      border: 1px solid rgba(212, 255, 0, 0.22);
+      border-radius: var(--radius);
+    }
+
+    .release-lab h2 {
+      margin-bottom: 7px;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .release-lab p {
+      color: var(--muted);
+      max-width: 45em;
+    }
+
+    .release-lab a {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      padding: 10px 15px;
+      border: 1px solid var(--lime);
+      border-radius: 999px;
+      color: var(--lime);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .release-lab a:hover {
+      color: var(--bg);
+      background: var(--lime);
+    }
+
     footer {
       margin-top: 56px;
       padding-top: 28px;
@@ -380,6 +420,12 @@
       }
       .steps {
         grid-template-columns: 1fr;
+      }
+      .release-lab {
+        grid-template-columns: 1fr;
+      }
+      .release-lab a {
+        justify-self: start;
       }
     }
   </style>
@@ -453,6 +499,17 @@
           </a>
         </li>
       </ul>
+    </section>
+
+    <section aria-labelledby="release-lab-heading">
+      <p class="section-label">How we ship</p>
+      <div class="release-lab">
+        <div>
+          <h2 id="release-lab-heading">Our in-house release lab</h2>
+          <p>No Such Games is where we exercise the mobile release, store, analytics, and maintenance systems behind App Release Ops on products we own.</p>
+        </div>
+        <a href="https://appreleaseops.com/work/no-such-games/" data-analytics-event="app_release_ops_click" data-analytics-program="studio">App Release Ops <span aria-hidden="true">&nbsp;→</span></a>
+      </div>
     </section>
 
     <footer>
