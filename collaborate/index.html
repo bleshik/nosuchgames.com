@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4R6BQWQX6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("consent", "default", {
+      analytics_storage: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      region: ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IS", "IE", "IT", "LV", "LI", "LT", "LU", "MT", "NL", "NO", "PL", "PT", "RO", "SK", "SI", "ES", "SE", "GB", "CH"]
+    });
+    gtag("js", new Date());
+    gtag("config", "G-M4R6BQWQX6");
+  </script>
+  <script defer src="/assets/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Collaborate with No Such Games as a creator, curator, media outlet, studio, or distribution partner.">
@@ -193,8 +209,8 @@
         <h1>Let’s make something worth discovering.</h1>
         <p class="lede">We collaborate on honest stories, playable experiments, and partnerships that give people a real reason to care—not just another ad to scroll past.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="mailto:feedback@nosuchgames.com?subject=Collaboration%20with%20No%20Such%20Games">Start a conversation</a>
-          <a class="btn btn-secondary" href="https://tinyblock.nosuchgames.com/creators/">See the Tiny Block opportunity</a>
+          <a class="btn btn-primary" href="mailto:feedback@nosuchgames.com?subject=Collaboration%20with%20No%20Such%20Games" data-analytics-event="collaboration_contact" data-analytics-program="studio">Start a conversation</a>
+          <a class="btn btn-secondary" href="https://tinyblock.nosuchgames.com/creators/" data-analytics-event="creator_program_click" data-analytics-program="tinyblock">See the Tiny Block opportunity</a>
         </div>
       </header>
 
@@ -242,7 +258,7 @@
             <h2 id="opportunities-title">Tiny Block: Founding Worldshapers</h2>
             <p>Creators can help shape creatures, items, plants, materials, and discoveries that their audience can find inside the game.</p>
           </div>
-          <a class="btn btn-primary" href="https://tinyblock.nosuchgames.com/creators/">Explore the program</a>
+          <a class="btn btn-primary" href="https://tinyblock.nosuchgames.com/creators/" data-analytics-event="creator_program_click" data-analytics-program="tinyblock">Explore the program</a>
         </div>
       </section>
 
@@ -250,12 +266,13 @@
         <p class="section-label">Have another idea?</p>
         <h2 id="contact-title">Tell us what you want to make.</h2>
         <p>Include a link to your work, the kind of collaboration you have in mind, and why No Such Games feels like the right fit.</p>
-        <a class="btn btn-primary" href="mailto:feedback@nosuchgames.com?subject=Collaboration%20with%20No%20Such%20Games">feedback@nosuchgames.com</a>
+        <a class="btn btn-primary" href="mailto:feedback@nosuchgames.com?subject=Collaboration%20with%20No%20Such%20Games" data-analytics-event="collaboration_contact" data-analytics-program="studio">feedback@nosuchgames.com</a>
       </section>
     </main>
 
     <footer>
       <p>© No Such Games. We make games that don’t exist—until players want them.</p>
+      <p><a href="https://tinyblock.nosuchgames.com/privacy/">Privacy</a></p>
     </footer>
   </div>
 </body>
