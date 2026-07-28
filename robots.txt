@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nosuchgames.com/sitemap.xml
