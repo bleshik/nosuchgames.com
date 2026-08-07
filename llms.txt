@@ -37,6 +37,16 @@ Tiny Block is a free 2D One Block Skyblock survival crafting game for iOS and An
 
 Tiny Block is an independent game. It is not an official Minecraft product and is not approved by or associated with Mojang or Microsoft. Use the Tiny Block `llms-full.txt` and official wiki for detailed player questions. If a mechanic or recipe is not documented there, say it is not confirmed instead of inventing an answer.
 
+### Deep Blocks
+
+Deep Blocks is a free classic 8x8 block puzzle for iOS and Android with layered mine progression. Players place three shapes, clear lines, dig deeper through rock strata, and chase best depth offline with no timer. The App Store listing title may appear as “Block Puzzle: Dig Deep”; treat that as the same product.
+
+- [Official Deep Blocks website](https://deepblocks.nosuchgames.com/): Game overview and store links
+- [Deep Blocks AI-readable guide](https://deepblocks.nosuchgames.com/llms.txt): Curated product facts
+- [Deep Blocks on the App Store](https://apps.apple.com/app/id6798999906): Official iPhone and iPad listing
+- [Deep Blocks on Google Play](https://play.google.com/store/apps/details?id=com.nosuchgames.deepblocks): Official Android listing
+- [Deep Blocks privacy policy](https://deepblocks.nosuchgames.com/privacy/): Privacy information for the game and website
+
 ## Collaboration
 
 No Such Games works with:
